@@ -1,0 +1,364 @@
+﻿@model RRSistemas.Areas.MarcaPresencaEsporte.Entity.AlunoENT
+@{
+    ViewBag.Title = "AlunoCadastro";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Areas/MarcaPresencaEsporte/Content/css/DetailDiaSemana.css" rel="stylesheet" />
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="content-wrapper">
+        @{ 
+            if (ViewBag.id_aluno == 0)
+            {
+                <div class="card-header"><i class="fa fa-child"></i> Cadastro de Aluno</div>
+            }
+            else
+            {
+                <div class="card-header"><i class="fa fa-child"></i> Cadastro do Aluno: @ViewBag.nm_aluno (@ViewBag.nr_matricula) - Responsável: @ViewBag.nm_responsavel (@ViewBag.cd_responsavel)</div>
+            }
+        }
+        <br />
+        <div class="form-group text-left">
+            @{
+                @*<button name="btn_voltar" class="btn btn-outline-primary" onclick="javascript: window.history.go(-1)"><i class="fas fa-reply"></i> Voltar </button>*@
+                if (ViewBag.id_perfil != 8)
+                {
+                    <button type="submit" name="btn_salvar" class="btn btn-outline-success"><i class="fas fa-save"></i> Salvar</button>
+                }
+
+                if (ViewBag.id_aluno != 0)
+                {
+                    <a href="@Url.Action("FollowUpBusca", "Followup", new { area = "", id_followup_categoria = 3, id_parametro = ViewBag.id_aluno })" class="btn btn-outline-primary"><i class="fas fa-comment"></i> Follow-up</a>
+                }
+            }
+        </div>
+        <div class="container">
+            <div class="form-group row">
+                @*Responsável: @ViewBag.nm_responsavel*@
+                
+                <div class="col-md-4">
+                    @*@Html.DropDownListFor(model => model.id_sexo, (SelectList)ViewBag.ComboSexo, "Selecione o Sexo", new { @class = "form-control", placeholder = "Sexo", required = "required" })
+                @Html.ValidationMessageFor(model => model.id_sexo)*@
+                    @*<asp:DropDownList runat="server" ID="CBOGenero" DataValueField="id_sexo" DataTextField="nm_genero" CssClass="form-control" aria-describedby="CBOGeneroHelp" placeholder="Sexo"></asp:DropDownList>*@
+                </div>
+                @*Código: @ViewBag.cd_responsavel*@
+                <div class="col-md-3">
+                    @*@Html.TextBoxFor(model => model.dt_nascimento, new { @class = "form-control", @maxlength = "20", @style = "width: 150px;", placeholder = "Data de Nascimento", autofocus = false, required = "required" })
+                @Html.ValidationMessageFor(model => model.dt_nascimento)*@
+                </div>
+            </div>
+
+            <nav>
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                    <a class="nav-item nav-link active" id="nav-aluno-tab" data-toggle="tab" href="#nav-aluno" role="tab" aria-controls="nav-aluno" aria-selected="true"><i class="fa fa-child"></i> Aluno</a>
+                    <a class="nav-item nav-link" id="nav-saude-tab" data-toggle="tab" href="#nav-saude" role="tab" aria-controls="nav-saude" aria-selected="false"><i class="fa fa-heartbeat"></i> Questionário de saúde</a>
+                    <a class="nav-item nav-link" id="nav-turma-tab" data-toggle="tab" href="#nav-turma" role="tab" aria-controls="nav-turma" aria-selected="false"><i class="fa fa-users"></i> Turma</a>
+                </div>
+            </nav>
+            <br />
+            <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="nav-aluno" role="tabpanel" aria-labelledby="nav-aluno-tab">
+                    <div class="content-wrapper">
+                        <div class="form-group row">
+                            @Html.Label("nr_matricula", "Matricula", new { @class = "col-sm-1 col-form-label" })
+                            <div class="col-sm-3">
+                                @Html.TextBoxFor(model => model.nr_matricula, new { @class = "form-control", placeholder = "Nome do aluno", autofocus = false, disabled = true })
+                            </div>
+
+                        </div>
+                        <div class="form-group row">
+                            @Html.Label("nm_aluno", "Nome", new { @class = "col-sm-1 col-form-label" })
+                            <div class="col-sm-6">
+                                @Html.TextBoxFor(model => model.nm_aluno, new { @class = "form-control", placeholder = "Nome do aluno", autofocus = false, required = "required" })
+                                @Html.ValidationMessageFor(model => model.nm_aluno)
+                            </div>
+
+                        </div>
+                        <div class="form-group row">
+                            @Html.Label("CBOSexo", "Sexo", new { @class = "col-sm-1 col-form-label" })
+                            <div class="col-md-3">
+                                @Html.DropDownListFor(model => model.id_sexo, (SelectList)ViewBag.ComboSexo, "Selecione o Sexo", new { @class = "form-control", placeholder = "Sexo", required = "required" })
+                                @Html.ValidationMessageFor(model => model.id_sexo)
+                                @*<asp:DropDownList runat="server" ID="CBOGenero" DataValueField="id_sexo" DataTextField="nm_genero" CssClass="form-control" aria-describedby="CBOGeneroHelp" placeholder="Sexo"></asp:DropDownList>*@
+                            </div>
+                            @Html.Label("dt_nascimento", "Data de Nascimento", new { @class = "col-md-3 col-form-label" })
+                            <div class="col-md-3">
+                                @Html.TextBoxFor(model => model.dt_nascimento, new { @class = "form-control", @maxlength = "20", @style = "width: 150px;", placeholder = "Data de Nascimento", autofocus = false, required = "required" })
+                                @Html.ValidationMessageFor(model => model.dt_nascimento)
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            @Html.Label("nr_telefone", "Telefone", new { @class = "col-sm-1 col-form-label" })
+                            <div class="col-sm-3">
+                                @Html.TextBoxFor(model => model.nr_telefone, new { @class = "form-control", placeholder = "Telefone", autofocus = false, required = "required" })
+                                @Html.ValidationMessageFor(model => model.nr_telefone)
+                            </div>
+                            @Html.Label("nr_celular", "Celular", new { @class = "col-sm-1 col-form-label" })
+                            <div class="col-sm-3">
+                                @Html.TextBoxFor(model => model.nr_celular, new { @class = "form-control", placeholder = "Celular", autofocus = false, required = "required" })
+                                @Html.ValidationMessageFor(model => model.nr_celular)
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            @Html.Label("nm_email", "E-mail", new { @class = "col-sm-1 col-form-label" })
+                            <div class="col-sm-4">
+                                @Html.TextBoxFor(model => model.nm_email, new { @class = "form-control", placeholder = "E-mail", autofocus = false, required = "required" })
+                                @Html.ValidationMessageFor(model => model.nm_email)
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            @Html.Label("nr_rg", "RG", new { @class = "col-sm-1 col-form-label" })
+                            <div class="col-sm-2">
+                                @Html.TextBoxFor(model => model.nr_rg, new { @class = "form-control", placeholder = "Número do RG", autofocus = false, required = "required" })
+                                @Html.ValidationMessageFor(model => model.nr_rg)
+                            </div>
+                            @Html.Label("nm_rg_orgao_emissor", "Orgão Emissor", new { @class = "col-sm-2 col-form-label" })
+                            <div class="col-sm-1">
+                                @Html.TextBoxFor(model => model.nm_rg_orgao_emissor, new { @class = "form-control", placeholder = "Orgao Emissor", autofocus = false, required = "required" })
+                                @Html.ValidationMessageFor(model => model.nm_rg_orgao_emissor)
+                            </div>
+                            @Html.Label("dt_emissao_rg", "Data de expedição", new { @class = "col-sm-2 col-form-label" })
+                            <div class="col-sm-2">
+                                @Html.TextBoxFor(model => model.dt_rg_expedicao, new { @class = "form-control", placeholder = "Data de expedição", autofocus = false, required = "required" })
+                                @Html.ValidationMessageFor(model => model.dt_rg_expedicao)
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            @Html.Label("nr_cpf", "CPF", new { @class = "col-sm-1 col-form-label" })
+                            <div class="col-sm-2">
+                                @Html.TextBoxFor(model => model.nr_cpf, new { @class = "form-control", placeholder = "Número do CPF", autofocus = false, required = "required" })
+                                @Html.ValidationMessageFor(model => model.nr_cpf)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <input type="hidden" name="id_usuario" id="id_aluno" value="@ViewBag.id_aluno" />
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="nav-saude" role="tabpanel" aria-labelledby="nav-saude-tab">
+                    <div class="form-group row">
+                        @Html.Label("nr_altura", "Altura", new { @class = "col-sm-2 col-form-label" })
+                        <div class="col-sm-2">
+                            @Html.TextBoxFor(model => model.nr_altura, new { @class = "form-control", placeholder = "Altura", autofocus = false })
+                            @*@Html.ValidationMessageFor(model => model.nr_altura)*@
+                        </div>
+
+                        @Html.Label("nr_peso", "Peso", new { @class = "col-sm-2 col-form-label" })
+                        <div class="col-sm-2">
+                            @Html.TextBoxFor(model => model.nr_peso, new { @class = "form-control", placeholder = "Peso", autofocus = false })
+                            @*@Html.ValidationMessageFor(model => model.nr_peso)*@
+                        </div>
+
+                        @Html.Label("nr_pressao", "Pressão", new { @class = "col-sm-2 col-form-label" })
+                        <div class="col-sm-2">
+                            @Html.TextBoxFor(model => model.nr_pressao, new { @class = "form-control", placeholder = "Pressão", autofocus = false })
+                            @*@Html.ValidationMessageFor(model => model.nr_pressao)*@
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        @Html.Label("id_tipo_sanguineo", "Tipo Sanguineo", new { @class = "col-sm-2 col-form-label" })
+                        <div class="col-md-2">
+                            @Html.DropDownListFor(model => model.id_tipo_sanguineo, (SelectList)ViewBag.ComboTipoSanguineo, " ", new { @class = "form-control", placeholder = "Tipo sanguineo" })
+                            @*@Html.ValidationMessageFor(model => model.id_tipo_sanguineo)*@
+                        </div>
+                        @Html.Label("dv_diabetes", "Diabetes?", new { @class = "col-sm-2 col-form-label" })
+                        <div class="col-md-2">
+                            @Html.DropDownListFor(model => model.dv_diabetes, (SelectList)ViewBag.ComboDiabetes, " ", new { @class = "form-control", placeholder = "Tem diabetes?" })
+                            @*@Html.ValidationMessageFor(model => model.dv_diabetes)*@
+                        </div>
+                        @Html.Label("dv_pressao_alta", "Pressão alta?", new { @class = "col-sm-2 col-form-label" })
+                        <div class="col-md-2">
+                            @Html.DropDownListFor(model => model.dv_pressao_alta, (SelectList)ViewBag.ComboPressaoAlta, " ", new { @class = "form-control", placeholder = "Pressão alta?" })
+                            @*@Html.ValidationMessageFor(model => model.dv_pressao_alta)*@
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        @Html.Label("dv_atividade_fisica", "Faz atividade física?", new { @class = "col-sm-3 col-form-label" })
+                        <div class="col-sm-2">
+                            @Html.DropDownListFor(model => model.dv_atividade_fisica, (SelectList)ViewBag.ComboAtividadeFisica, " ", new { @class = "form-control", placeholder = "Faz atividade física?" })
+                            @*@Html.ValidationMessageFor(model => model.dv_atividade_fisica)*@
+                        </div>
+                        @Html.Label("ds_atividade_fisica", "Quais?", new { @class = "col-sm-1 col-form-label" })
+                        <div class="col-sm-6">
+                            @Html.TextBoxFor(model => model.ds_atividade_fisica, new { @class = "form-control", placeholder = "Qual(is)?", autofocus = false })
+                            @*@Html.ValidationMessageFor(model => model.ds_atividade_fisica)*@
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        @Html.Label("dv_cirurgia", "Fez cirurgia?", new { @class = "col-sm-3 col-form-label" })
+                        <div class="col-sm-2">
+                            @Html.DropDownListFor(model => model.dv_cirurgia, (SelectList)ViewBag.ComboCirurgia, " ", new { @class = "form-control", placeholder = "Fez cirurgia?" })
+                            @*@Html.ValidationMessageFor(model => model.dv_cirurgia)*@
+                        </div>
+                        @Html.Label("ds_cirurgia", "Quais?", new { @class = "col-sm-1 col-form-label" })
+                        <div class="col-sm-6">
+                            @Html.TextBoxFor(model => model.ds_cirurgia, new { @class = "form-control", placeholder = "Qual(is)?", autofocus = false })
+                            @*@Html.ValidationMessageFor(model => model.ds_cirurgia)*@
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        @Html.Label("dv_doenca_cronica", "Doença crônica?", new { @class = "col-sm-3 col-form-label" })
+                        <div class="col-sm-2">
+                            @Html.DropDownListFor(model => model.dv_doenca_cronica, (SelectList)ViewBag.ComboDoencaCronica, " ", new { @class = "form-control", placeholder = "Doença crônica?" })
+                            @*@Html.ValidationMessageFor(model => model.dv_doenca_cronica)*@
+                        </div>
+                        @Html.Label("ds_doenca_cronica", "Quais?", new { @class = "col-sm-1 col-form-label" })
+                        <div class="col-sm-6">
+                            @Html.TextBoxFor(model => model.ds_doenca_cronica, new { @class = "form-control", placeholder = "Quais?", autofocus = false })
+                            @*@Html.ValidationMessageFor(model => model.ds_doenca_cronica)*@
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        @Html.Label("dv_alergia", "Tem alergia?", new { @class = "col-sm-3 col-form-label" })
+                        <div class="col-sm-2">
+                            @Html.DropDownListFor(model => model.dv_alergia, (SelectList)ViewBag.ComboAlergia, " ", new { @class = "form-control", placeholder = "Tem alergia?" })
+                            @*@Html.ValidationMessageFor(model => model.dv_alergia)*@
+                        </div>
+                        @Html.Label("ds_alergia", "Quais?", new { @class = "col-sm-1 col-form-label" })
+                        <div class="col-sm-6">
+                            @Html.TextBoxFor(model => model.ds_alergia, new { @class = "form-control", placeholder = "Quais?", autofocus = false })
+                            @*@Html.ValidationMessageFor(model => model.ds_alergia)*@
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        @Html.Label("dv_alergia_medicamento", "Alergia a medicamento?", new { @class = "col-sm-3 col-form-label" })
+                        <div class="col-sm-2">
+                            @Html.DropDownListFor(model => model.dv_alergia_medicamento, (SelectList)ViewBag.ComboAlergiaMedicamento, " ", new { @class = "form-control", placeholder = "Alergia a medicamento?" })
+                            @*@Html.ValidationMessageFor(model => model.dv_alergia_medicamento)*@
+                        </div>
+                        @Html.Label("ds_alergia_medicamento", "Quais?", new { @class = "col-sm-1 col-form-label" })
+                        <div class="col-sm-6">
+                            @Html.TextBoxFor(model => model.ds_alergia_medicamento, new { @class = "form-control", placeholder = "Quais?", autofocus = false })
+                            @*@Html.ValidationMessageFor(model => model.ds_alergia_medicamento)*@
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        @Html.Label("dv_medicamento", "Toma medicamento?", new { @class = "col-sm-3 col-form-label" })
+                        <div class="col-sm-2">
+                            @Html.DropDownListFor(model => model.dv_medicamento, (SelectList)ViewBag.ComboMedicamento, " ", new { @class = "form-control", placeholder = "Toma medicamento?" })
+                            @*@Html.ValidationMessageFor(model => model.dv_medicamento)*@
+                        </div>
+                        @Html.Label("ds_medicamento", "Horas", new { @class = "col-sm-1 col-form-label" })
+                        <div class="col-sm-6">
+                            @Html.TextBoxFor(model => model.ds_medicamento, new { @class = "form-control", placeholder = "Horas", autofocus = false })
+                            @*@Html.ValidationMessageFor(model => model.ds_medicamento)*@
+                        </div>
+                    </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="nav-turma" role="tabpanel" aria-labelledby="nav-turma-tab">
+                        <div class="card-header"><i class="fa fa-users"></i> Associar Turma</div>
+                        <br />
+                        <div class="form-group row">
+                            @Html.Label("CBOTurma", "Turma", new { @class = "col-sm-2 col-form-label" })
+                            <div class="col-md-4">
+                                @Html.DropDownListFor(model => model.id_turma, (SelectList)ViewBag.ComboTurmaAlunoDisp, "Selecione a turma", new { id="ddlTurma", @class = "form-control", placeholder = "Turma" })
+                                @Html.ValidationMessageFor(model => model.id_turma)
+                                @*@Html.ValidationMessageFor(model => model.id_tipo_sanguineo)*@
+                            </div>
+                            <div class="col-md-3">
+                                @*<a href="@Url.Action("CadastroAlunoTurma", "Cadastro", new { area = "MarcaPresencaEsporte", id_aluno = ViewBag.id_aluno })" class="btn btn-outline-primary"><i class="fas fa-users"></i>Associar Turma</a>*@
+                                <a class="btn btn-outline-primary" onclick="cadastroAlunoTurma()"><i class="fas fa-users"></i>Associar Turma</a>
+                            </div>
+                        </div>
+
+                            
+
+                            <br />
+                            <div class="content-wrapper">
+                                <div class="card mb-3">
+                                    <div class="card-header"><i class="fa fa-users"></i> Turmas</div>
+                                    <div class="card-body">
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
+                                                <thead class="thead-dark">
+                                                    <tr>
+                                                        <th>#</th>
+                                                        <th>Turma</th>
+                                                        <th>Professor</th>
+                                                        <th>Dias da semana</th>
+                                                        <th>Horário</th>
+
+                                                        @*@if (ViewBag.id_perfil != 8)
+                                        {*@
+                                                        @Html.Raw("<th><i class=\"fa fa-fw fa-trash\"></i></th>")
+                                                        @*}*@
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @Html.Raw(ViewBag.ListaAlunoTurma)
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <table class="tableLeg">
+                                        <tr>
+                                            <td class="legSemSel">D</td>
+                                            <td class="legText">Sem aula.</td>
+                                            <td>&nbsp;</td>
+                                            <td class="legSelDiaSemana">D</td>
+                                            <td class="legText">Dias da semana com aula.</td>
+                                            <td>&nbsp;</td>
+                                            <td class="legSelFimSemana">D</td>
+                                            <td class="legText">Fim de semana com aula.</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+
+                </div>
+            </div>
+        </div>
+  
+}
+
+<script>
+    function cadastroAlunoTurma() {
+
+        debugger;
+        var id_aluno = @ViewBag.id_aluno;
+        var id_turma = $("#ddlTurma option:selected").val();
+
+        fetch('CadastroAlunoTurma?id_aluno=' + id_aluno + '&id_turma=' + id_turma,
+        {
+            method: 'get'
+        })
+        .then(response => {
+            console.log(response);
+            window.location="/MarcaPresencaEsporte/Cadastro/AlunoCadastro?id_aluno=" + id_aluno;
+        })
+        .catch(error => {
+            console.log(error);
+            showMessage("error", error);
+        });
+    }
+</script>
+
+@*@section Scripts {
+    <script>
+        $(document).ready(function ()
+        {
+            $("#nr_telefone").inputmask("mask", { "mask": "(99) 99999-9999" });
+            $("#nr_celular").inputmask("mask", { "mask": "(99) 99999-9999" });
+            $("#nr_cpf").inputmask("mask", { "mask": "999.999.999-99" }, { reverse: true });
+            $("#nr_cep").inputmask("mask", { "mask": "99999-999" });
+            $("#dt_nascimento").inputmask("mask", { "mask": "99/99/9999" });
+            $("#dt_rg_expedicao").inputmask("mask", { "mask": "99/99/9999" });
+            $("#preco").inputmask("mask", { "mask": "999.999,99" }, { reverse: true });
+            $("#valor").inputmask("mask", { "mask": "#.##9,99" }, { reverse: true });
+            $("#ip").inputmask("mask", { "mask": "999.999.999.999" });
+    });
+    </script>
+}*@

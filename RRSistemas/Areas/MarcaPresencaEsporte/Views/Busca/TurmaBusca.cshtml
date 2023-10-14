@@ -1,0 +1,68 @@
+﻿
+@{
+    ViewBag.Title = "TurmaBusca";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Areas/MarcaPresencaEsporte/Content/css/DetailDiaSemana.css" rel="stylesheet" />
+<div class="content-wrapper">
+    <div class="card-header"><i class="fa fa-users"></i> Cadastro de Turma</div>
+    <br />
+    <div class="container">
+        @if (ViewBag.id_perfil != 8)
+        {
+            <div class="input-group">
+               @Html.ActionLink("Nova Turma", "TurmaCadastro", "Cadastro", new { area = "MarcaPresencaEsporte" }, new { @class = "btn btn-outline-primary" })
+            </div>
+            <br />
+        }
+        <!-- Example DataTables Card-->
+        <div class="card mb-3">
+            <div class="card-header"><i class="fa fa-users"></i> Turmas Cadastradas</div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>#</th>
+                                <th>Professor</th>
+                                <th>Turma</th>
+                                <th>Dias da semana</th>
+                                <th>Horário</th>
+                                @if (ViewBag.id_perfil == 8)
+                                {
+                                    @Html.Raw("<th>Alunos</th>")
+                                }
+                                else
+                                {
+                                    @Html.Raw("<th>Vagas</th>")
+                                }
+                                
+                                @if (ViewBag.id_perfil != 8)
+                                { 
+                                    @Html.Raw("<th><i class=\"fa fa-fw fa-edit\"></i></th>")
+                                }
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @Html.Raw(ViewBag.ListaTurma)
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div>
+            <table class="tableLeg">
+                <tr>
+                    <td class="legSemSel">D</td>
+                    <td class="legText">Sem aula.</td>
+                    <td>&nbsp;</td>
+                    <td class="legSelDiaSemana">D</td>
+                    <td class="legText">Dias da semana com aula.</td>
+                    <td>&nbsp;</td>
+                    <td class="legSelFimSemana">D</td>
+                    <td class="legText">Fim de semana com aula.</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

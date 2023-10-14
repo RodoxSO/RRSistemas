@@ -1,0 +1,149 @@
+﻿@model RRSistemas.Entity.UsuarioENT
+@{
+    ViewBag.Title = "RR Sistemas";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <link rel="shortcut icon" href="../Content/images/Icons/iconLogin.jpg">
+    <!--Made with love by Mutiullah Samim -->
+    <!--Bootsrap 4 CDN-->
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    @*<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">*@
+
+    <!--Fontawesome CDN-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <!--Custom styles-->
+    <link href="~/Content/css/Login.css" rel="stylesheet" type="text/css" />
+    @*<link rel="stylesheet" type="text/css" href="styles.css">*@
+</head>
+<body>
+    <div class="container">
+        <div class="d-flex justify-content-center h-100">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Login</h3>
+                    @*<div class="d-flex justify-content-end social_icon">
+                            <span><i class="fab fa-facebook-square"></i></span>
+                            <span><i class="fab fa-google-plus-square"></i></span>
+                            <span><i class="fab fa-twitter-square"></i></span>
+                        </div>*@
+                </div>
+                <div class="card-body">
+                    @using (Html.BeginForm("Index", "Authentication", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", @style = "margin: 10px auto 10px auto; max-width: 400px;" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true)
+                        <div class="form-group" align="center">
+                            @Html.Label("", (string)ViewBag.Message, new { @class = "alert_pass_error", @style = "width: 300px;" })
+                        </div>
+                        <div class="input-group form-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                            </div>
+                            @*<input type="text" class="form-control" placeholder="username">*@
+                            @Html.TextBoxFor(model => model.nm_login, new { @class = "form-control", placeholder = "Login", autofocus = true, @maxlength = "20", required = "required" })
+                            @Html.ValidationMessageFor(model => model.nm_login)
+
+                        </div>
+                        <div class="input-group form-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-key"></i></span>
+                            </div>
+                            @*<input type="password" class="form-control" placeholder="password">*@
+                            @Html.PasswordFor(model => model.pw_senha, new { @class = "form-control", placeholder = "Password", @maxlength = "20", required = "required" })
+                            @Html.ValidationMessageFor(model => model.pw_senha)
+                        </div>
+                        @*<div class="row align-items-center remember">
+                                <input type="checkbox">Remember Me
+                            </div>*@
+                        <div class="form-group">
+                            <input type="submit" value="Login" class="btn float-right login_btn">
+                        </div>
+                    }
+                </div>
+                <div class="card-footer">
+                    @*<div class="d-flex justify-content-center links">
+                            Don't have an account?<a href="#">Sign Up</a>
+                        </div>*@
+                    <div class="d-flex justify-content-center">
+                        <a href="#" class="links">Forgot your password?</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<!DOCTYPE html>
+
+    <html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <link rel="shortcut icon" href="../Content/images/favicon.png">
+        <title>@ViewBag.Title</title>
+        <link href="~/Content/css/Site.css" rel="stylesheet" type="text/css" />
+        <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="~/Content/css/Login.css" rel="stylesheet" type="text/css" />
+        <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    </head>
+    <body>
+            @using (Html.BeginForm("Login", "Login", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", @style = "margin: 10px auto 10px auto; max-width: 400px;" }))
+            {
+                <fieldset>
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true)
+                    <div class="container body-content">
+                        <div class="content-wrapper">
+                            <div id="container">
+                                <div class="form-group">
+                                    <img src="../Content/images/sistemas.png" class="img-responsive" />
+                                </div>
+                                <div class="form-group" align="center">
+                                    @Html.Label("", (string)ViewBag.Message, new { @class = "alert alert-danger" })
+                                </div>
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                    @Html.TextBoxFor(model => model.nm_login, new { @class = "form-control form-control-sm", @style = "max-width:200px;", placeholder = "Login", autofocus = true, @maxlength = "20", required = "required" })
+                                    @Html.ValidationMessageFor(model => model.nm_login)
+                                </div>
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                    @Html.PasswordFor(model => model.pw_senha, new { @class = "form-control", @style = "max-width:200px;", placeholder = "Password", @maxlength = "20", required = "required" })
+                                    @Html.ValidationMessageFor(model => model.pw_senha)
+                                </div>
+                                <br />
+                                <div class="input-group form-group row center-block" align="center">
+                                    <input type="submit" name="BtnLogin" class="btn btn-primary center-block" value="Entrar" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    </fieldset>
+            }
+
+    </body>
+    </html>*@

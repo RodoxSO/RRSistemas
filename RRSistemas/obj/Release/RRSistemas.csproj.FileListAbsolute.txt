@@ -1,0 +1,98 @@
+D:\Sviluppo\RRSistemas\RRSistemas\bin\ApplicationInsights.config
+D:\Sviluppo\RRSistemas\RRSistemas\bin\roslyn\csc.exe
+D:\Sviluppo\RRSistemas\RRSistemas\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Sviluppo\RRSistemas\RRSistemas\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Sviluppo\RRSistemas\RRSistemas\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Sviluppo\RRSistemas\RRSistemas\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Sviluppo\RRSistemas\RRSistemas\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Sviluppo\RRSistemas\RRSistemas\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Sviluppo\RRSistemas\RRSistemas\bin\roslyn\System.Collections.Immutable.dll
+D:\Sviluppo\RRSistemas\RRSistemas\bin\roslyn\System.Reflection.Metadata.dll
+D:\Sviluppo\RRSistemas\RRSistemas\bin\roslyn\vbc.exe
+D:\Sviluppo\RRSistemas\RRSistemas\bin\roslyn\VBCSCompiler.exe
+D:\Sviluppo\RRSistemas\RRSistemas\bin\roslyn\VBCSCompiler.exe.config
+D:\Sviluppo\RRSistemas\RRSistemas\bin\RRSistemas.dll.config
+D:\Sviluppo\RRSistemas\RRSistemas\bin\RRSistemas.dll
+D:\Sviluppo\RRSistemas\RRSistemas\bin\RRSistemas.pdb
+D:\Sviluppo\RRSistemas\RRSistemas\bin\Microsoft.AI.Agent.Intercept.dll
+D:\Sviluppo\RRSistemas\RRSistemas\bin\Microsoft.AI.DependencyCollector.dll
+D:\Sviluppo\RRSistemas\RRSistemas\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\Sviluppo\RRSistemas\RRSistemas\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\Sviluppo\RRSistemas\RRSistemas\bin\Microsoft.AI.Web.dll
+D:\Sviluppo\RRSistemas\RRSistemas\bin\Microsoft.AI.WindowsServer.dll
+D:\Sviluppo\RRSistemas\RRSistemas\bin\Microsoft.ApplicationInsights.dll
+D:\Sviluppo\RRSistemas\RRSistemas\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Sviluppo\RRSistemas\RRSistemas\bin\Microsoft.Web.Infrastructure.dll
+D:\Sviluppo\RRSistemas\RRSistemas\bin\System.Web.Helpers.dll
+D:\Sviluppo\RRSistemas\RRSistemas\bin\System.Web.Mvc.dll
+D:\Sviluppo\RRSistemas\RRSistemas\bin\System.Web.Razor.dll
+D:\Sviluppo\RRSistemas\RRSistemas\bin\System.Web.Webpages.Deployment.dll
+D:\Sviluppo\RRSistemas\RRSistemas\bin\System.Web.Webpages.dll
+D:\Sviluppo\RRSistemas\RRSistemas\bin\System.Web.Webpages.Razor.dll
+D:\Sviluppo\RRSistemas\RRSistemas\bin\Microsoft.AI.DependencyCollector.xml
+D:\Sviluppo\RRSistemas\RRSistemas\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\Sviluppo\RRSistemas\RRSistemas\bin\Microsoft.AI.Web.xml
+D:\Sviluppo\RRSistemas\RRSistemas\bin\Microsoft.AI.WindowsServer.xml
+D:\Sviluppo\RRSistemas\RRSistemas\bin\Microsoft.ApplicationInsights.xml
+D:\Sviluppo\RRSistemas\RRSistemas\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Sviluppo\RRSistemas\RRSistemas\bin\System.Web.Razor.xml
+D:\Sviluppo\RRSistemas\RRSistemas\bin\System.Web.Webpages.xml
+D:\Sviluppo\RRSistemas\RRSistemas\bin\System.Web.Webpages.Deployment.xml
+D:\Sviluppo\RRSistemas\RRSistemas\bin\System.Web.Webpages.Razor.xml
+D:\Sviluppo\RRSistemas\RRSistemas\bin\System.Web.Helpers.xml
+D:\Sviluppo\RRSistemas\RRSistemas\bin\System.Web.Mvc.xml
+D:\Sviluppo\RRSistemas\RRSistemas\obj\Release\RRSistemas.dll
+D:\Sviluppo\RRSistemas\RRSistemas\obj\Release\RRSistemas.pdb
+C:\Users\Rodolfo\Documents\Visual Studio 2015\Projects\RRSistemas\RRSistemas\bin\ApplicationInsights.config
+C:\Users\Rodolfo\Documents\Visual Studio 2015\Projects\RRSistemas\RRSistemas\bin\roslyn\csc.exe
+C:\Users\Rodolfo\Documents\Visual Studio 2015\Projects\RRSistemas\RRSistemas\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Rodolfo\Documents\Visual Studio 2015\Projects\RRSistemas\RRSistemas\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Rodolfo\Documents\Visual Studio 2015\Projects\RRSistemas\RRSistemas\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Rodolfo\Documents\Visual Studio 2015\Projects\RRSistemas\RRSistemas\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Rodolfo\Documents\Visual Studio 2015\Projects\RRSistemas\RRSistemas\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Rodolfo\Documents\Visual Studio 2015\Projects\RRSistemas\RRSistemas\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Rodolfo\Documents\Visual Studio 2015\Projects\RRSistemas\RRSistemas\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Rodolfo\Documents\Visual Studio 2015\Projects\RRSistemas\RRSistemas\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Rodolfo\Documents\Visual Studio 2015\Projects\RRSistemas\RRSistemas\bin\roslyn\vbc.exe
+C:\Users\Rodolfo\Documents\Visual Studio 2015\Projects\RRSistemas\RRSistemas\bin\roslyn\VBCSCompiler.exe
+C:\Users\Rodolfo\Documents\Visual Studio 2015\Projects\RRSistemas\RRSistemas\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Rodolfo\Documents\Visual Studio 2015\Projects\RRSistemas\RRSistemas\bin\RRSistemas.dll.config
+C:\Users\Rodolfo\Documents\Visual Studio 2015\Projects\RRSistemas\RRSistemas\bin\RRSistemas.dll
+C:\Users\Rodolfo\Documents\Visual Studio 2015\Projects\RRSistemas\RRSistemas\bin\RRSistemas.pdb
+C:\Users\Rodolfo\Documents\Visual Studio 2015\Projects\RRSistemas\RRSistemas\bin\Antlr3.Runtime.dll
+C:\Users\Rodolfo\Documents\Visual Studio 2015\Projects\RRSistemas\RRSistemas\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\Rodolfo\Documents\Visual Studio 2015\Projects\RRSistemas\RRSistemas\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\Rodolfo\Documents\Visual Studio 2015\Projects\RRSistemas\RRSistemas\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\Rodolfo\Documents\Visual Studio 2015\Projects\RRSistemas\RRSistemas\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\Rodolfo\Documents\Visual Studio 2015\Projects\RRSistemas\RRSistemas\bin\Microsoft.AI.Web.dll
+C:\Users\Rodolfo\Documents\Visual Studio 2015\Projects\RRSistemas\RRSistemas\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\Rodolfo\Documents\Visual Studio 2015\Projects\RRSistemas\RRSistemas\bin\Microsoft.ApplicationInsights.dll
+C:\Users\Rodolfo\Documents\Visual Studio 2015\Projects\RRSistemas\RRSistemas\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Rodolfo\Documents\Visual Studio 2015\Projects\RRSistemas\RRSistemas\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Rodolfo\Documents\Visual Studio 2015\Projects\RRSistemas\RRSistemas\bin\Newtonsoft.Json.dll
+C:\Users\Rodolfo\Documents\Visual Studio 2015\Projects\RRSistemas\RRSistemas\bin\System.Web.Helpers.dll
+C:\Users\Rodolfo\Documents\Visual Studio 2015\Projects\RRSistemas\RRSistemas\bin\System.Web.Mvc.dll
+C:\Users\Rodolfo\Documents\Visual Studio 2015\Projects\RRSistemas\RRSistemas\bin\System.Web.Optimization.dll
+C:\Users\Rodolfo\Documents\Visual Studio 2015\Projects\RRSistemas\RRSistemas\bin\System.Web.Razor.dll
+C:\Users\Rodolfo\Documents\Visual Studio 2015\Projects\RRSistemas\RRSistemas\bin\System.Web.Webpages.Deployment.dll
+C:\Users\Rodolfo\Documents\Visual Studio 2015\Projects\RRSistemas\RRSistemas\bin\System.Web.Webpages.dll
+C:\Users\Rodolfo\Documents\Visual Studio 2015\Projects\RRSistemas\RRSistemas\bin\System.Web.Webpages.Razor.dll
+C:\Users\Rodolfo\Documents\Visual Studio 2015\Projects\RRSistemas\RRSistemas\bin\WebGrease.dll
+C:\Users\Rodolfo\Documents\Visual Studio 2015\Projects\RRSistemas\RRSistemas\bin\Antlr3.Runtime.pdb
+C:\Users\Rodolfo\Documents\Visual Studio 2015\Projects\RRSistemas\RRSistemas\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\Rodolfo\Documents\Visual Studio 2015\Projects\RRSistemas\RRSistemas\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\Rodolfo\Documents\Visual Studio 2015\Projects\RRSistemas\RRSistemas\bin\Microsoft.AI.Web.xml
+C:\Users\Rodolfo\Documents\Visual Studio 2015\Projects\RRSistemas\RRSistemas\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\Rodolfo\Documents\Visual Studio 2015\Projects\RRSistemas\RRSistemas\bin\Microsoft.ApplicationInsights.xml
+C:\Users\Rodolfo\Documents\Visual Studio 2015\Projects\RRSistemas\RRSistemas\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Rodolfo\Documents\Visual Studio 2015\Projects\RRSistemas\RRSistemas\bin\Newtonsoft.Json.xml
+C:\Users\Rodolfo\Documents\Visual Studio 2015\Projects\RRSistemas\RRSistemas\bin\System.Web.Optimization.xml
+C:\Users\Rodolfo\Documents\Visual Studio 2015\Projects\RRSistemas\RRSistemas\bin\System.Web.Razor.xml
+C:\Users\Rodolfo\Documents\Visual Studio 2015\Projects\RRSistemas\RRSistemas\bin\System.Web.Webpages.xml
+C:\Users\Rodolfo\Documents\Visual Studio 2015\Projects\RRSistemas\RRSistemas\bin\System.Web.Webpages.Deployment.xml
+C:\Users\Rodolfo\Documents\Visual Studio 2015\Projects\RRSistemas\RRSistemas\bin\System.Web.Webpages.Razor.xml
+C:\Users\Rodolfo\Documents\Visual Studio 2015\Projects\RRSistemas\RRSistemas\bin\System.Web.Helpers.xml
+C:\Users\Rodolfo\Documents\Visual Studio 2015\Projects\RRSistemas\RRSistemas\bin\System.Web.Mvc.xml
+C:\Users\Rodolfo\Documents\Visual Studio 2015\Projects\RRSistemas\RRSistemas\obj\Release\RRSistemas.csprojResolveAssemblyReference.cache
+C:\Users\Rodolfo\Documents\Visual Studio 2015\Projects\RRSistemas\RRSistemas\obj\Release\RRSistemas.dll
+C:\Users\Rodolfo\Documents\Visual Studio 2015\Projects\RRSistemas\RRSistemas\obj\Release\RRSistemas.pdb

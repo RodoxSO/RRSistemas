@@ -1,0 +1,121 @@
+﻿@model RRSistemas.Areas.MarcaPonto.Entity.MarcaPontoENT
+@{
+    ViewBag.Title = "MarcaPonto";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script language="JavaScript">
+    function moveRelogio(){
+        momentoAtual = new Date()
+        day = momentoAtual.getDay()
+        var semana = new Array(6);
+        semana[0] = 'Domingo';
+        semana[1] = 'Segunda-Feira';
+        semana[2] = 'Terça-Feira';
+        semana[3] = 'Quarta-Feira';
+        semana[4] = 'Quinta-Feira';
+        semana[5] = 'Sexta-Feira';
+        semana[6] = 'Sábado';
+
+        data = momentoAtual.getDate()
+        month = momentoAtual.getMonth()
+        var mes = new Array(11);
+        mes[0] = 'Janeiro';
+        mes[1] = 'Fevereiro';
+        mes[2] = 'Março';
+        mes[3] = 'Abril';
+        mes[4] = 'Maio';
+        mes[5] = 'Junho';
+        mes[6] = 'Julho';
+        mes[7] = 'Agosto';
+        mes[8] = 'Setembro';
+        mes[9] = 'Outubro';
+        mes[10] = 'Novembro';
+        mes[11] = 'Dezembro';
+
+        year = momentoAtual.getFullYear()
+
+        if (data < 10) {
+            data = "0" + data;
+        }
+
+        hora = momentoAtual.getHours()
+   	    minuto = momentoAtual.getMinutes()
+   	    segundo = momentoAtual.getSeconds()
+
+   	    if (hora < 10) {
+   	        hora = "0" + hora;
+   	    }
+
+   	    if (minuto < 10) {
+   	        minuto = "0" + minuto;
+   	    }
+
+   	    if (segundo < 10) {
+   	        segundo = "0" + segundo;
+   	    }
+
+   	    dataImprimivel = semana[day] +", " + data + " de " + mes[month] + " de " + year
+   	    horaImprimivel = hora + ":" + minuto + ":" + segundo
+
+   	    document.getElementById('lbl_data_atual').innerText = dataImprimivel;
+   	    document.getElementById('lbl_hora_atual').innerText = horaImprimivel;
+
+   	    setTimeout("moveRelogio()",100)
+    }
+</script>
+@using (Html.BeginForm("MarcaPonto", "MarcaPonto", FormMethod.Post, new { @id = "frm_marcaPonto", @name = "frm_marcaPonto", enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="content-wrapper">
+        <!-- Breadcrumbs-->
+        <div class="card-header"><i class="fa fa-business-time"></i> Marcar Ponto</div>
+        <br />
+        <div class="text-center">
+            @*<img src="../imagens/relogio_ponto.png" />*@
+            <div class="form-row">
+                <div class="col-md-12">
+                    <label id="lbl_day_atual" class="font_relogio"></label>
+                    <label id="lbl_data_atual" class="font_relogio"></label>
+                    <label id="lbl_hora_atual" class="font_relogio"></label>
+                    @*@Html.Label("", (string)ViewBag.lbl_hora_atual, new { @class = "font_relogio" })*@
+                </div>
+            </div>
+            <br />
+            <div class="form-row">
+                <div class="col-md-12">
+                    <button type="submit" name="btn_salvar" class="btn btn-outline-success"><i class="fas fa-business-time"></i> Marcar Ponto</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<br />
+<div class="content-wrapper">
+    @*<div class="card-header"><i class="fa fa-users"></i> Cadastro de Turma</div>
+        <br />*@
+    <div class="container">
+        <!-- Example DataTables Card-->
+        <div class="card mb-3">
+            <div class="card-header"><i class="fa fa-business-time"></i> Marcações do dia</div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover" id="" width="100%" cellspacing="0">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>Tipo</th>
+                                <th>Data</th>
+                                <th>Dia da Semana</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @Html.Raw(ViewBag.ListaMarcacaoDiaria)
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    moveRelogio();
+</script>

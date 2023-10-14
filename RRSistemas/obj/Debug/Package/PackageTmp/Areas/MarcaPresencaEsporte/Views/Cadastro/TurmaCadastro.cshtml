@@ -1,0 +1,114 @@
+﻿@model RRSistemas.Areas.MarcaPresencaEsporte.Entity.TurmaENT
+@{
+    ViewBag.Title = "TurmaCadastro";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="content-wrapper">
+        <div class="card-header"><i class="fa fa-users"></i> Cadastro de Turma</div>
+        <br />
+        <div class="form-group text-left">
+            @*<button name="btn_voltar" class="btn btn-outline-primary" onclick="javascript: history.back(1);"><i class="fas fa-reply"></i> Voltar</button>*@
+            <button type="submit" name="btn_salvar" class="btn btn-outline-success"><i class="fas fa-save"></i> Salvar</button>
+        </div>
+        <div class="form-group" align="center">
+            @ViewBag.Message
+            @Html.Label("", (string)ViewBag.Message, new { @class = "alert_pass_error", @style = "width: 300px;" })
+        </div>
+        <div class="container">
+            <div class="form-group row">
+                @Html.Label("nm_turma", "Nome da Turma", new { @class = "col-sm-2 col-form-label" })
+                <div class="col-md-6">
+                    @Html.TextBoxFor(model => model.nm_turma, new { @class = "form-control", placeholder = "Nome da Turma", autofocus = true, required = "required" })
+                    @Html.ValidationMessageFor(model => model.nm_turma)
+                </div>
+            </div>
+            <div class="form-group row">
+                @Html.Label("ds_turma", "Descrição da Turma", new { @class = "col-sm-2 col-form-label" })
+                <div class="col-md-6">
+                    @Html.TextBoxFor(model => model.ds_turma, new { @class = "form-control", placeholder = "Descrição da Turma", autofocus = false, required = "required" })
+                    @Html.ValidationMessageFor(model => model.ds_turma)
+                </div>
+            </div>
+            <div class="form-group row">
+                @Html.Label("nr_vagas_total", "Número de vagas", new { @class = "col-sm-2 col-form-label" })
+                <div class="col-md-2">
+                    @Html.TextBoxFor(model => model.nr_vagas_total, new { @class = "form-control", placeholder = "Número de Vagas", autofocus = false, required = "required" })
+                    @Html.ValidationMessageFor(model => model.nr_vagas_total)
+                </div>
+            </div>
+            <div class="form-group row">
+                @Html.Label("hr_inicio_aula", "Hora início", new { @class = "col-sm-2 col-form-label" })
+                <div class="col-md-2">
+                    @Html.TextBoxFor(model => model.hr_inicio_aula, new { @class = "form-control", placeholder = "Hora início", autofocus = false, required = "required" })
+                    @Html.ValidationMessageFor(model => model.hr_inicio_aula)
+                </div>
+                @Html.Label("hr_final_aula", "Hora final", new { @class = "col-sm-2 col-form-label" })
+                <div class="col-md-2">
+                    @Html.TextBoxFor(model => model.hr_final_aula, new { @class = "form-control", placeholder = "Hora final", autofocus = false, required = "required" })
+                    @Html.ValidationMessageFor(model => model.hr_final_aula)
+                </div>
+            </div>
+            <div class="form-group row">
+                @Html.Label("nr_matricula", "Dias da Semana", new { @class = "col-sm-2 col-form-label" })
+                <div class="col-md-3">
+                    <div class="form-check">
+                        @Html.CheckBoxFor(model => model.dv_segunda, new { @class = "form-check-input" })
+                        @Html.Label("ckb_segunda", "Segunda-Feira", new { @class = "form-check-label" })
+                        @*<asp:Checkbox runat="server" class="form-check-input" id="ckb_segunda"></asp:Checkbox>
+                            <label class="form-check-label" for="ckb_segunda">Segunda-Feira</label>*@
+                    </div>
+                    <div class="form-check">
+                        @Html.CheckBoxFor(model => model.dv_terca, new { @class = "form-check-input" })
+                        @Html.Label("ckb_terca", "Terça-Feira", new { @class = "form-check-label" })
+                    </div>
+
+                    <div class="form-check">
+                        @Html.CheckBoxFor(model => model.dv_quarta, new { @class = "form-check-input" })
+                        @Html.Label("ckb_quarta", "Quarta-Feira", new { @class = "form-check-label" })
+                    </div>
+                    <div class="form-check">
+                        @Html.CheckBoxFor(model => model.dv_quinta, new { @class = "form-check-input" })
+                        @Html.Label("ckb_quinta", "Quinta-Feira", new { @class = "form-check-label" })
+                    </div>
+                    <div class="form-check">
+                        @Html.CheckBoxFor(model => model.dv_sexta, new { @class = "form-check-input" })
+                        @Html.Label("ckb_sexta", "Sexta-Feira", new { @class = "form-check-label" })
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-check">
+                        @Html.CheckBoxFor(model => model.dv_sabado, new { @class = "form-check-input" })
+                        @Html.Label("ckb_sabado", "Sábado", new { @class = "form-check-label" })
+                    </div>
+                    <div class="form-check">
+                        @Html.CheckBoxFor(model => model.dv_domingo, new { @class = "form-check-input" })
+                        @Html.Label("ckb_domingo", "Domingo", new { @class = "form-check-label" })
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                @Html.Label("CBOProfessor", "Professor", new { @class = "col-sm-2 col-form-label" })
+                <div class="col-md-3">
+                    @Html.DropDownListFor(model => model.id_professor, (SelectList)ViewBag.ComboProfessor, "Selecione um Professor", new { @class = "form-control", required = "required" })
+                    @Html.ValidationMessageFor(model => model.id_professor)
+                </div>
+            </div>
+            <div class="text-center">
+                @Html.Hidden("hdn_id_turma", 0)
+                @*<asp:Label runat="server" id="LblMensagem"></asp:Label>*@
+            </div>
+        </div>
+    </div>
+}
+@*@section Scripts {
+    <script>
+        $(document).ready(function ()
+        {
+            $("#hr_inicio_aula").inputmask("mask", { "mask": "99:99" });
+            $("#hr_final_aula").inputmask("mask", { "mask": "99:99" });
+    });
+    </script>
+}*@

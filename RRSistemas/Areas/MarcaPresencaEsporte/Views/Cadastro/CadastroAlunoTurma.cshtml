@@ -1,0 +1,21 @@
+﻿@model RRSistemas.Areas.MarcaPresencaEsporte.Entity.TurmaENT
+@{
+    ViewBag.Title = "CadastroAlunoTurma";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="content-wrapper">
+        <div class="card-header"><i class="fa fa-users"></i> Associação de Turma com aluno</div>
+        <br />
+        <div class="form-group row">
+            @Html.Label("CBOTurma", "Turma", new { @class = "col-sm-1 col-form-label" })
+            <div class="col-md-3">
+           @*     @Html.DropDownListFor(model => model.id_turma, (SelectList)ViewBag.ComboTurma, "Selecione a turma", new { @class = "form-control", placeholder = "Turma", required = "required" })*@
+                @Html.ValidationMessageFor(model => model.id_turma)
+                @*<asp:DropDownList runat="server" ID="CBOGenero" DataValueField="id_sexo" DataTextField="nm_genero" CssClass="form-control" aria-describedby="CBOGeneroHelp" placeholder="Sexo"></asp:DropDownList>*@
+            </div>
+        </div>
+    </div>
+}

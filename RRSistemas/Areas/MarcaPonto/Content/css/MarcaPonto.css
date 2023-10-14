@@ -1,0 +1,14 @@
+﻿body {
+}
+@font-face {
+    font-family: 'DS-DIGIB';
+    src: url('../../../../fonts/DS-DIGIB.TTF') format('truetype');
+}
+
+.font_relogio{
+    width: 600px;
+    background-color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    color: black;
+}

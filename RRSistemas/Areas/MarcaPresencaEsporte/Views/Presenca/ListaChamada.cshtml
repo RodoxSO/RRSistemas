@@ -1,0 +1,72 @@
+﻿
+@{
+    ViewBag.Title = "ListaChamada";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="content-wrapper">
+        <div class="card-header"><i class="fas fa-calendar-check"></i> Lista de Chamada</div>
+        <br />
+        <div class="container">
+            @*<div class="input-group">
+                    @Html.ActionLink("Nova Turma", "TurmaCadastro", "Cadastro", new { area = "MarcaPresencaEsporte" }, new { @class = "btn btn-outline-primary" })
+                </div>*@
+            <div class="container">
+                <div class="form-group row">
+                    <div class="col-sm-1">
+                        Turma
+                    </div>
+                    <div class="col-sm-4">
+                        @ViewBag.nm_turma
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-1">
+                        Professor
+                    </div>
+                    <div class="col-sm-4">
+                        @ViewBag.nm_professor
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-1">
+                        Data
+                    </div>
+                    <div class="col-sm-4">
+                        @ViewBag.dt_aula
+                    </div>
+                </div>
+            </div>
+            <input type="hidden" name="id_aula" value="@ViewBag.id_aula">
+            <br />
+            <!-- Example DataTables Card-->
+            <div class="card mb-3">
+                <div class="card-header"><i class="fas fa-calendar-check"></i> Lista de Chamada</div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover" id="dataTable" width="70%" cellspacing="0">
+                            <thead class="thead-dark">
+                                <tr>
+                                    @*<th width="5%" class="align-content-center">#</th>*@
+                                    <th width="90%">Aluno</th>
+                                    @*<th><i class="fa fa-fw fa-edit"></i></th>*@
+                                    <th width="5%" align="center">Presença</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @Html.Raw(ViewBag.ListarChamada)
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group text-left">
+            @*<button name="btn_voltar" class="btn btn-outline-primary" onclick="javascript: history.back(1);"><i class="fas fa-reply"></i> Voltar</button>*@
+            <button type="submit" name="btn_salvar" class="btn btn-outline-success"><i class="fas fa-save"></i> Salvar</button>
+        </div>
+    </div>
+}

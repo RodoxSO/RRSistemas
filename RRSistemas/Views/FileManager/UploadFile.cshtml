@@ -1,0 +1,46 @@
+﻿@model RRSistemas.Entity.UploadDownloadENT
+@{
+    ViewBag.Title = "UploadFile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("ViewUpload", "FileManager", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="content-wrapper">
+        <div class="card-header"><i class="fa fa-book"></i> Upload de arquivos</div>
+        <br />
+        <div class="container">
+            <div class="form-group row">
+                @ViewBag.Message
+            </div>
+
+                <div class="form-group row">
+                    @Html.Label("nm_file", "Arquivo", new { @class = "col-sm-2 col-form-label" })
+                    <div class="col-md-3">
+                        @Html.TextBox("file", "", new { type = "file" })
+                        @*<input type="file" name="nm_file">*@
+                        @*Html.TextBoxFor(model => model.nm_file, new { @class = "form-control", placeholder = "Arquivo", autofocus = false, required = "required" })*@
+                        @Html.ValidationMessageFor(model => model.nm_file)
+                    </div>
+                </div>
+                @*<div class="form-group row">
+                    @Html.Label("ds_file", "Descrição", new { @class = "col-sm-2 col-form-label" })
+                    <div class="col-md-9">
+                        @Html.TextBoxFor(model => model.ds_file, new { @class = "form-control", placeholder = "Descrição", autofocus = false, required = "required" })
+                        @Html.ValidationMessageFor(model => model.ds_file)
+                    </div>
+                </div>*@
+                @*<div class="form-group row">
+                <asp:Label runat="server" id="LblMensagem"></asp:Label>
+            </div>*@
+                <div class="form-group row">
+                    @Html.HiddenFor(model => model.id_usuario)
+                </div>
+                <div class="text-right">
+                    @*<input type="button" class="btn btn-primary" value="Voltar" onclick="javascript: window.history.go(-1)" />*@
+                    <input type="submit" value="Enviar" class="btn btn-success" />
+                </div>
+            </div>
+    </div>
+}

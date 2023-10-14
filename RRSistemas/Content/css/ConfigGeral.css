@@ -1,0 +1,14 @@
+﻿body {
+}
+
+@font-face {
+    font-family: 'DS-DIGIB';
+    src: url('../../../../fonts/DS-DIGIB.TTF') format('truetype');
+}
+
+.relogio_tela_principal{
+    margin-right: 5px;
+    font-family: DS-DIGIB;
+    font-size: 26px;
+    color: white;
+}

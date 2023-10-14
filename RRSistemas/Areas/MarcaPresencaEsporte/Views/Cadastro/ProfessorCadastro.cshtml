@@ -1,0 +1,164 @@
+﻿@model RRSistemas.Entity.UsuarioENT
+@{
+    ViewBag.Title = "ProfessorCadastro";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="content-wrapper">
+        <div class="card-header"><i class="fa fa-chalkboard-teacher"></i> Cadastro de Professor</div>
+        <br />
+        <div class="form-group text-left">
+            @{
+                @*<button name="btn_voltar" class="btn btn-outline-primary" onclick="javascript: window.history.go(-1)"><i class="fas fa-reply"></i> Voltar </button>*@
+                <button type="submit" name="btn_salvar" class="btn btn-outline-success"><i class="fas fa-save"></i> Salvar</button>
+                if (ViewBag.id_usuario != 0)
+                {
+                    <a href="@Url.Action("FollowUpBusca", "Followup", new { area = "", cat_followup = "usu", id_parametro = ViewBag.id_usuario })" class="btn btn-outline-primary"><i class="fas fa-comment"></i> Follow-up</a>
+                }
+            }
+        </div>
+
+        <div class="form-group row">
+
+            @{
+                if (ViewBag.id_usuario != null && ViewBag.id_usuario != 0)
+                {
+                    @Html.Label("cd_usuario", "Código", new { @class = "col-sm-1 col-form-label" })
+                    <div class="col-sm-3">
+                        @*@Html.TextBoxFor(model => model.nr_matricula, new { @class = "form-control", placeholder = "Número de Matrícula", autofocus = false, required = "required" })
+                    @Html.ValidationMessageFor(model => model.nr_matricula)*@
+                        @Html.TextBoxFor(model => model.cd_usuario, new { @class = "form-control", placeholder = "Número de Matrícula", autofocus = false, disabled = "disabled" })
+                    </div>
+                }
+            }           
+        </div>
+        <div class="form-group row">
+            @Html.Label("nm_usuario", "Nome", new { @class = "col-sm-1 col-form-label" })
+            <div class="col-sm-6">
+                @Html.TextBoxFor(model => model.nm_usuario, new { @class = "form-control", placeholder = "Nome do usuário", autofocus = false, required = "required" })
+                @Html.ValidationMessageFor(model => model.nm_usuario)
+            </div>
+
+        </div>
+        <div class="form-group row">
+            @Html.Label("CBOSexo", "Sexo", new { @class = "col-sm-1 col-form-label" })
+            <div class="col-md-3">
+                @Html.DropDownListFor(model => model.id_sexo, (SelectList)ViewBag.ComboSexo, "Selecione o Sexo", new { @class = "form-control", placeholder = "Sexo", required = "required" })
+                @Html.ValidationMessageFor(model => model.id_sexo)
+                @*<asp:DropDownList runat="server" ID="CBOGenero" DataValueField="id_sexo" DataTextField="nm_genero" CssClass="form-control" aria-describedby="CBOGeneroHelp" placeholder="Sexo"></asp:DropDownList>*@
+            </div>
+            @Html.Label("dt_nascimento", "Data de Nascimento", new { @class = "col-md-3 col-form-label" })
+            <div class="col-md-3">
+                @Html.TextBoxFor(model => model.dt_nascimento, new { @class = "form-control", @maxlength = "20", @style = "width: 150px;", placeholder = "Data de Nascimento", autofocus = false, required = "required" })
+                @Html.ValidationMessageFor(model => model.dt_nascimento)
+            </div>
+        </div>
+        <div class="form-group row">
+            @Html.Label("nm_endereco", "Endereço", new { @class = "col-sm-1 col-form-label" })
+            <div class="col-sm-6">
+                @Html.TextBoxFor(model => model.nm_endereco, new { @class = "form-control", placeholder = "Endereço", autofocus = false, required = "required" })
+                @Html.ValidationMessageFor(model => model.nm_endereco)
+            </div>
+            @Html.Label("nr_endereco", "Nº", new { @class = "col-sm-1 col-form-label" })
+            <div class="col-sm-2">
+                @Html.TextBoxFor(model => model.nr_endereco, new { @class = "form-control", placeholder = "Nº", autofocus = false, required = "required" })
+                @Html.ValidationMessageFor(model => model.nr_endereco)
+            </div>
+        </div>
+        <div class="form-group row">
+            @Html.Label("nm_complemento", "Comp.", new { @class = "col-sm-1 col-form-label" })
+            <div class="col-sm-6">
+                @Html.TextBoxFor(model => model.nm_complemento, new { @class = "form-control", placeholder = "Complemento", autofocus = false })
+                @Html.ValidationMessageFor(model => model.nm_complemento)
+            </div>
+        </div>
+        <div class="form-group row">
+            @Html.Label("nm_bairro", "Bairro", new { @class = "col-sm-1 col-form-label" })
+            <div class="col-sm-5">
+                @Html.TextBoxFor(model => model.nm_bairro, new { @class = "form-control", placeholder = "Bairro", autofocus = false, required = "required" })
+                @Html.ValidationMessageFor(model => model.nm_bairro)
+            </div>
+            @Html.Label("nr_cep", "CEP", new { @class = "col-sm-1 col-form-label" })
+            <div class="col-sm-2">
+                @Html.TextBoxFor(model => model.nr_cep, new { @class = "form-control", placeholder = "CEP", autofocus = false, required = "required" })
+                @Html.ValidationMessageFor(model => model.nr_cep)
+            </div>
+        </div>
+        <div class="form-group row">
+            @Html.Label("id_estado", "Estado", new { @class = "col-sm-1 col-form-label" })
+            <div class="col-sm-3">
+                @Html.DropDownListFor(model => model.id_estado, (SelectList)ViewBag.ComboEstado, "Selecione o Estado", new { @class = "form-control", placeholder = "Estado", required = "required" })
+                @Html.ValidationMessageFor(model => model.id_estado)
+            </div>
+            @Html.Label("nm_cidade", "Cidade", new { @class = "col-sm-1 col-form-label" })
+            <div class="col-sm-3">
+                @Html.TextBoxFor(model => model.nm_cidade, new { @class = "form-control", placeholder = "Estado", autofocus = false, required = "required" })
+                @Html.ValidationMessageFor(model => model.nm_cidade)
+            </div>
+        </div>
+        <div class="form-group row">
+            @Html.Label("nr_contato", "Telefone", new { @class = "col-sm-1 col-form-label" })
+            <div class="col-sm-3">
+                @Html.TextBoxFor(model => model.nr_telefone, new { @class = "form-control", placeholder = "Telefone", autofocus = false, required = "required" })
+                @Html.ValidationMessageFor(model => model.nr_telefone)
+            </div>
+            @Html.Label("nr_celular", "Celular", new { @class = "col-sm-1 col-form-label" })
+            <div class="col-sm-3">
+                @Html.TextBoxFor(model => model.nr_celular, new { @class = "form-control", placeholder = "Celular", autofocus = false, required = "required" })
+                @Html.ValidationMessageFor(model => model.nr_celular)
+            </div>
+        </div>
+        <div class="form-group row">
+            @Html.Label("nm_email", "E-mail", new { @class = "col-sm-1 col-form-label" })
+            <div class="col-sm-4">
+                @Html.TextBoxFor(model => model.nm_email, new { @class = "form-control", placeholder = "E-mail", autofocus = false, required = "required" })
+                @Html.ValidationMessageFor(model => model.nm_email)
+            </div>
+        </div>
+        <div class="text-center">
+            @Html.Hidden("hdn_id_usuario", 0)
+        </div>
+        <div class="form-group row">
+            @Html.Label("nr_rg", "RG", new { @class = "col-sm-1 col-form-label" })
+            <div class="col-sm-2">
+                @Html.TextBoxFor(model => model.nr_rg, new { @class = "form-control", placeholder = "Número do RG", autofocus = false, required = "required" })
+                @Html.ValidationMessageFor(model => model.nr_rg)
+            </div>
+            @Html.Label("nm_rg_orgao_emissor", "Orgão Emissor", new { @class = "col-sm-2 col-form-label" })
+            <div class="col-sm-1">
+                @Html.TextBoxFor(model => model.nm_rg_orgao_emissor, new { @class = "form-control", placeholder = "Orgao Emissor", autofocus = false, required = "required" })
+                @Html.ValidationMessageFor(model => model.nm_rg_orgao_emissor)
+            </div>
+            @Html.Label("dt_emissao_rg", "Data de expedição", new { @class = "col-sm-2 col-form-label" })
+            <div class="col-sm-2">
+                @Html.TextBoxFor(model => model.dt_rg_expedicao, new { @class = "form-control", placeholder = "Data de expedição", autofocus = false, required = "required" })
+                @Html.ValidationMessageFor(model => model.dt_rg_expedicao)
+            </div>
+        </div>
+        <div class="form-group row">
+            @Html.Label("nr_cpf", "CPF", new { @class = "col-sm-1 col-form-label" })
+            <div class="col-sm-2">
+                @Html.TextBoxFor(model => model.nr_cpf, new { @class = "form-control", placeholder = "Número do CPF", autofocus = false, required = "required" })
+                @Html.ValidationMessageFor(model => model.nr_cpf)
+            </div>
+        </div>
+    </div>
+}
+@*@section Scripts {
+        <script>
+            $(document).ready(function ()
+            {
+                $("#nr_telefone").inputmask("mask", { "mask": "(99) 99999-9999" });
+                $("#nr_celular").inputmask("mask", { "mask": "(99) 99999-9999" });
+                $("#nr_cpf").inputmask("mask", { "mask": "999.999.999-99" }, { reverse: true });
+                $("#nr_cep").inputmask("mask", { "mask": "99999-999" });
+                $("#dt_nascimento").inputmask("mask", { "mask": "99/99/9999" });
+                $("#dt_rg_expedicao").inputmask("mask", { "mask": "99/99/9999" });
+                $("#preco").inputmask("mask", { "mask": "999.999,99" }, { reverse: true });
+                $("#valor").inputmask("mask", { "mask": "#.##9,99" }, { reverse: true });
+                $("#ip").inputmask("mask", { "mask": "999.999.999.999" });
+        });
+        </script>
+    }*@

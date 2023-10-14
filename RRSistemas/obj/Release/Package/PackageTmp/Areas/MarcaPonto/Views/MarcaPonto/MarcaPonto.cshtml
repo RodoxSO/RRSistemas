@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "MarcaPonto";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="content-wrapper">
+    <!-- Breadcrumbs-->
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">Marcar Ponto</li>
+    </ol>
+    <div class="text-center">
+        <img src="../imagens/relogio_ponto.png" />
+        <br />
+        <br />
+        <div class="form-row">
+            <div class="col-md-9">
+                <!--<label for="TxtObservacao">Observações</label>-->
+                @*@Html.TextBoxFor(model => model.nm_login, new { @class = "form-control", placeholder = "Observações", autofocus = true, @maxlength = "500" })*@
+            </div>
+        </div>
+        <asp:Label runat="server" id="LblMensagem"></asp:Label>
+        <br />
+        <div class="form-row">
+            <div class="col-md-2">
+                <div class="input-group">
+                    <a href="" class="btn btn-primary">Marcar Ponto</a>
+                </div><!-- /input-group -->
+            </div>
+        </div>
+    </div>
+</div>

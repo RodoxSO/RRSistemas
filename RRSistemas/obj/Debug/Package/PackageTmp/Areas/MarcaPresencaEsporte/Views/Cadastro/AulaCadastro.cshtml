@@ -1,0 +1,45 @@
+﻿@model RRSistemas.Areas.MarcaPresencaEsporte.Entity.AulaENT
+@{
+    ViewBag.Title = "AulaCadastro";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="content-wrapper">
+        <div class="card-header"><i class="fa fa-book"></i> Cadastro de Aula</div>
+        <br />
+        <div class="container">
+            <div class="form-group row">
+                @Html.Label("CBOProfessor", "Professor", new { @class = "col-sm-2 col-form-label" })
+                <div class="col-md-5">
+                    @Html.DropDownListFor(model => model.id_professor, (SelectList)ViewBag.ComboProfessor, "Selecione um Professor", new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group row">
+                @Html.Label("CBOTurma", "Turma", new { @class = "col-sm-2 col-form-label" })
+                <div class="col-md-5">
+                    @Html.DropDownListFor(model => model.id_turma, (SelectList)ViewBag.ComboTurma, "Selecione uma Turma", new { @class = "form-control" })
+                    @*<asp:DropDownList runat="server" ID="CBOTurma" DataValueField="Id_turma" DataTextField="Nm_turma" CssClass="form-control" aria-describedby="CBOTurmaHelp" placeholder="Turma"></asp:DropDownList>*@
+                </div>
+            </div>
+            <div class="form-group row">
+                @Html.Label("dt_aula", "Data", new { @class = "col-sm-2 col-form-label" })
+                <div class="col-md-3">
+                    @Html.TextBoxFor(model => model.dt_aula, new { @class = "form-control", placeholder = "Data da Aula", autofocus = false, required = "required" })
+                    @Html.ValidationMessageFor(model => model.dt_aula)
+                </div>
+            </div>
+            @*<div class="form-group row">
+                <asp:Label runat="server" id="LblMensagem"></asp:Label>
+            </div>*@
+            <div class="form-group row">
+                @Html.HiddenFor(model => model.id_aula)
+            </div>
+            <div class="text-right">
+                <input type="button" class="btn btn-primary" value="Voltar" onclick="javascript: window.history.go(-1)" />
+                <input type="submit" value="Salvar" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+}

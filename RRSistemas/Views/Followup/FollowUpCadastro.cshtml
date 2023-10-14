@@ -1,0 +1,42 @@
+﻿@model RRSistemas.Entity.FollowupENT
+@{
+    ViewBag.Title = "FollowUpCadastro";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="content-wrapper">
+        <div class="card-header"><i class="fa fa-users"></i> Cadastro de Follow-up</div>
+        <br />
+        <div class="form-group text-left">
+            @*<button name="btn_voltar" class="btn btn-outline-primary" onclick="javascript: history.back(1);"><i class="fas fa-reply"></i> Voltar</button>*@
+            <button type="submit" name="btn_salvar" class="btn btn-outline-success"><i class="fas fa-save"></i> Salvar</button>
+        </div>
+        <div class="form-group" align="center">
+            @ViewBag.Message
+            @Html.Label("", (string)ViewBag.Message, new { @class = "alert_pass_error", @style = "width: 300px;" })
+        </div>
+        <div class="container">
+            <div class="form-group row">
+                @Html.Label("Data", "Data", new { @class = "col-sm-2 col-form-label" })
+                <div class="col-md-3">
+                    @Html.Label(@DateTime.Now.ToShortDateString(), new { @class = "css-class" })
+                    @*@Html.DropDownListFor(model => model.id_followup_tipo, (SelectList)ViewBag.ComboTipoFollowup, " ", new { @class = "form-control", required = "required" })
+                    @Html.ValidationMessageFor(model => model.id_followup_tipo)*@
+                </div>
+            </div>
+            <div class="form-group row">
+                @Html.Label("ds_folowup", "Follow-up", new { @class = "col-sm-2 col-form-label" })
+                <div class="col-md-6">
+                    @Html.TextAreaFor(model => model.ds_followup, new { @class = "form-control", required = "required" }) 
+                    @Html.ValidationMessageFor(model => model.ds_followup)
+                </div>
+            </div>
+            <div class="text-center">
+                @*@Html.Hidden("hdn_id_turma", 0)*@
+                @*<asp:Label runat="server" id="LblMensagem"></asp:Label>*@
+            </div>
+        </div>
+    </div>
+}
