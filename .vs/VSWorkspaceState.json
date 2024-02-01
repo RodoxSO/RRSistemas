@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\RRSistemas"
+    "\\RRSistemas",
+    "\\RRSistemas\\Entity"
   ],
-  "SelectedNode": "\\RRSistemas\\Web.config",
+  "SelectedNode": "\\RRSistemas\\Entity\\FileManagerENT.cs",
   "PreviewInSolutionExplorer": false
 }
